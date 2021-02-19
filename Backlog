@@ -2,3 +2,10 @@ US001 Task001 - Modify mouse input to move the player's view less. The mouse sho
 US002 Task002 - Sand blocks should fall to the ground if there is no block underneath. Points 5
 US002 Task003 - Gravel blocks should fall to the ground if there is no block underneath. Points 5
 US003 Task004 - Cloud color should change to a dark grey at night, and stay white during daytime. Points 2
+US004 Task005 - Design the layout and structure of the buildings to be spawned. Points 5
+US004 Task006 - Create generation function and spawn conditions for buildings. Points 5
+US005 Task007 - Create lava block model. Points 3
+US005 Task008 - Create generation function and spawn conditions for lava pools. Points 5
+US006 Task009 - Create rain drop block model. Points 3
+US006 Task010 - Create spawn conditions for rain drop blocks. Points 3
+US006 Task011 - Rain drop blocks should have no collision and be effected by gravity. Points 3
