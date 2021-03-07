@@ -25,6 +25,8 @@ const int items[] = {
     SUN_FLOWER,
     WHITE_FLOWER,
     BLUE_FLOWER,
+    LAVA,
+    RAIN,
     COLOR_00,
     COLOR_01,
     COLOR_02,
@@ -88,8 +90,8 @@ const int blocks[256][6] = {
     {0, 0, 0, 0, 0, 0}, // 21
     {0, 0, 0, 0, 0, 0}, // 22
     {0, 0, 0, 0, 0, 0}, // 23
-    {0, 0, 0, 0, 0, 0}, // 24
-    {0, 0, 0, 0, 0, 0}, // 25
+    {240, 240, 240, 240, 240, 240}, // 24 lava
+    {17, 17, 18, 19, 17, 17}, // 25 rain
     {0, 0, 0, 0, 0, 0}, // 26
     {0, 0, 0, 0, 0, 0}, // 27
     {0, 0, 0, 0, 0, 0}, // 28
@@ -185,6 +187,7 @@ int is_transparent(int w) {
         case GLASS:
         case LEAVES:
         case WATER:
+        case RAIN:
             return 1;
         default:
             return 0;
