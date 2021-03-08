@@ -33,6 +33,8 @@
 #define MODE_OFFLINE 0
 #define MODE_ONLINE 1
 
+#define MOUSE_SENSITIVITY 0.001;
+
 typedef struct {
     Map map;
     SignList signs;
@@ -91,6 +93,7 @@ typedef struct {
 
 typedef struct {
     GLFWwindow *window;
+    float sensitivity;
     Chunk chunks[MAX_CHUNKS];
     int chunk_count;
     int create_radius;
@@ -1959,13 +1962,12 @@ void handle_mouse_input() {
     if (exclusive && (px || py)) {
         double mx, my;
         glfwGetCursorPos(g->window, &mx, &my);
-        float m = 0.0025;
-        s->rx += (mx - px) * m;
+        s->rx += (mx - px) * g->sensitivity;
         if (INVERT_MOUSE) {
-            s->ry += (my - py) * m;
+            s->ry += (my - py) * g->sensitivity;
         }
         else {
-            s->ry -= (my - py) * m;
+            s->ry -= (my - py) * g->sensitivity;
         }
         if (s->rx < 0) {
             s->rx += RADIANS(360);
@@ -2000,6 +2002,8 @@ void handle_movement(double dt) {
         if (glfwGetKey(g->window, GLFW_KEY_RIGHT)) s->rx += m;
         if (glfwGetKey(g->window, GLFW_KEY_UP)) s->ry += m;
         if (glfwGetKey(g->window, GLFW_KEY_DOWN)) s->ry -= m;
+        if (glfwGetKey(g->window, GLFW_KEY_M)) g->sensitivity *= 1.1;
+        if (glfwGetKey(g->window, GLFW_KEY_N)) g->sensitivity *= 0.9;
     }
     float vx, vy, vz;
     get_motion_vector(g->flying, sz, sx, s->rx, s->ry, &vx, &vy, &vz);
@@ -2306,6 +2310,7 @@ int main(int argc, char **argv) {
 
         Player *me = g->players;
         State *s = &g->players->state;
+        g->sensitivity = MOUSE_SENSITIVITY;
         me->id = 0;
         me->name[0] = '\0';
         me->buffer = 0;
