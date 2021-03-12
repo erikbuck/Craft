@@ -1,11 +1,17 @@
-US001 Task001 - Modify mouse input to move the player's view less. The mouse should be less sensitive. Points 3
+-- US001 Task001 - Modify mouse input to move the player's view less. The mouse should be less sensitive. Points 3
 US002 Task002 - Sand blocks should fall to the ground if there is no block underneath. Points 5
 US002 Task003 - Gravel blocks should fall to the ground if there is no block underneath. Points 5
 US003 Task004 - Cloud color should change to a dark grey at night, and stay white during daytime. Points 2
 US004 Task005 - Design the layout and structure of the buildings to be spawned. Points 5
 US004 Task006 - Create generation function and spawn conditions for buildings. Points 5
-US005 Task007 - Create lava block model. Points 3
+-- US005 Task007 - Create lava block model. Points 3
 US005 Task008 - Create generation function and spawn conditions for lava pools. Points 5
-US006 Task009 - Create rain drop block model. Points 3
+-- US006 Task009 - Create rain drop block model. Points 3
 US006 Task010 - Create spawn conditions for rain drop blocks. Points 3
 US006 Task011 - Rain drop blocks should have no collision and be effected by gravity. Points 3
+US007 Task012 - Water blocks should not be transparent. Points 2
+US007 Task013 - Water and lava blocks should slow player movement when the player is inside them. Points 3
+US007 Task014 - Lava blocks should have no collision. Points 1
+US008 Task015 - Add button handling for sprint, doubling movement speed. Points 3
+US009 Task016 - Add the ability to double jump while not flying. Points 3
+US010 Task017 - Add bodies of water to terrain generation. Points 5
