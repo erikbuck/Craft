@@ -8,3 +8,6 @@ US007 - As a player of Craft, I want fluid blocks to slow player movement.
 US008 - As a player of Craft, I want to be able to sprint.
 US009 - As a player of Craft, I want to be able to double jump
 US010 - As a player of Craft, I want bodies of water to be generated in the map.
+US011 - As a player of Craft, I want the player to have limited, regenerating health, to make a more realistic environment.
+US012 - As a player of Craft, I want to be able to swim wherever there are water blocks, to make the game more realistic.
+
