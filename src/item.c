@@ -168,6 +168,8 @@ int is_obstacle(int w) {
     switch (w) {
         case EMPTY:
         case CLOUD:
+        case LAVA:
+        case RAIN:
         case WATER:
             return 0;
         default:
