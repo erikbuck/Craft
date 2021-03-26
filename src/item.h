@@ -71,5 +71,6 @@ int is_obstacle(int w);
 int is_transparent(int w);
 int is_alpha(int w);
 int is_destructable(int w);
+int is_slowing(int w);
 
 #endif

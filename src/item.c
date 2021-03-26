@@ -208,3 +208,16 @@ int is_destructable(int w) {
             return 1;
     }
 }
+
+int is_slowing(int w) {
+    // The player must be able to pass through the item for it to slow them.
+    if (is_obstacle(w)) return 0;
+
+    switch (w) {
+        case WATER:
+        case LAVA:
+            return 1;
+        default:
+            return 0;
+    }
+}
