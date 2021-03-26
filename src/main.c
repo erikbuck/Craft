@@ -33,6 +33,8 @@
 #define MODE_OFFLINE 0
 #define MODE_ONLINE 1
 
+#define MOUSE_SENSITIVITY 0.001;
+
 typedef struct {
     Map map;
     SignList signs;
@@ -91,6 +93,7 @@ typedef struct {
 
 typedef struct {
     GLFWwindow *window;
+    float sensitivity;
     Chunk chunks[MAX_CHUNKS];
     int chunk_count;
     int create_radius;
@@ -108,6 +111,7 @@ typedef struct {
     int observe1;
     int observe2;
     int flying;
+    int slowed;
     int item_index;
     int scale;
     int ortho;
@@ -1959,13 +1963,12 @@ void handle_mouse_input() {
     if (exclusive && (px || py)) {
         double mx, my;
         glfwGetCursorPos(g->window, &mx, &my);
-        float m = 0.0025;
-        s->rx += (mx - px) * m;
+        s->rx += (mx - px) * g->sensitivity;
         if (INVERT_MOUSE) {
-            s->ry += (my - py) * m;
+            s->ry += (my - py) * g->sensitivity;
         }
         else {
-            s->ry -= (my - py) * m;
+            s->ry -= (my - py) * g->sensitivity;
         }
         if (s->rx < 0) {
             s->rx += RADIANS(360);
@@ -1981,6 +1984,54 @@ void handle_mouse_input() {
     else {
         glfwGetCursorPos(g->window, &px, &py);
     }
+}
+
+// Returns 1 if player intersects a MapEntry x where is_slowing(x)==1,
+//   otherwise return 0.
+int is_movement_slowed(Player* player) {    
+    int height = 2;
+    float *x = &player->state.x;
+    float *y = &player->state.y;
+    float *z = &player->state.z;
+    
+    int result = 0;
+    int p = chunked(*x);
+    int q = chunked(*z);
+    Chunk *chunk = find_chunk(p, q);
+    if (!chunk) {
+        return result;
+    }
+    Map *map = &chunk->map;
+    int nx = roundf(*x);
+    int ny = roundf(*y);
+    int nz = roundf(*z);
+    float px = *x - nx;
+    float py = *y - ny;
+    float pz = *z - nz;
+    float pad = 0.25;
+    for (int dy = 0; dy < height; dy++) {
+        // Check if player is intersecting with an item that is slowing.
+        if (   px < -pad && is_slowing(map_get(map, nx - 1, ny - dy, nz))
+            || px >  pad && is_slowing(map_get(map, nx + 1, ny - dy, nz))
+            || py < -pad && is_slowing(map_get(map, nx, ny - dy - 1, nz))
+            || py >  pad && is_slowing(map_get(map, nx, ny - dy + 1, nz))
+            || pz < -pad && is_slowing(map_get(map, nx, ny - dy, nz - 1))
+            || pz >  pad && is_slowing(map_get(map, nx, ny - dy, nz + 1)) 
+        ) {
+           result = 1;
+        }
+    }
+    return result;
+}
+
+// Calculates the current movement speed of the player.
+// Returns the movement speed of the player.
+float handle_player_speed() {
+    g->slowed = is_movement_slowed(&g->players);
+
+    // Only slow movement if the player is not flying.
+    float speed = g->flying ? 20 : (g->slowed ? 1 : 5);
+    return speed;
 }
 
 void handle_movement(double dt) {
@@ -2000,6 +2051,8 @@ void handle_movement(double dt) {
         if (glfwGetKey(g->window, GLFW_KEY_RIGHT)) s->rx += m;
         if (glfwGetKey(g->window, GLFW_KEY_UP)) s->ry += m;
         if (glfwGetKey(g->window, GLFW_KEY_DOWN)) s->ry -= m;
+        if (glfwGetKey(g->window, GLFW_KEY_M)) g->sensitivity *= 1.1;
+        if (glfwGetKey(g->window, GLFW_KEY_N)) g->sensitivity *= 0.9;
     }
     float vx, vy, vz;
     get_motion_vector(g->flying, sz, sx, s->rx, s->ry, &vx, &vy, &vz);
@@ -2013,7 +2066,7 @@ void handle_movement(double dt) {
             }
         }
     }
-    float speed = g->flying ? 20 : 5;
+    float speed = handle_player_speed();
     int estimate = roundf(sqrtf(
         powf(vx * speed, 2) +
         powf(vy * speed + ABS(dy) * 2, 2) +
@@ -2133,6 +2186,7 @@ void reset_model() {
     g->observe1 = 0;
     g->observe2 = 0;
     g->flying = 0;
+    g->slowed = 0;
     g->item_index = 0;
     memset(g->typing_buffer, 0, sizeof(char) * MAX_TEXT_LENGTH);
     g->typing = 0;
@@ -2306,6 +2360,7 @@ int main(int argc, char **argv) {
 
         Player *me = g->players;
         State *s = &g->players->state;
+        g->sensitivity = MOUSE_SENSITIVITY;
         me->id = 0;
         me->name[0] = '\0';
         me->buffer = 0;

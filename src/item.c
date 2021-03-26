@@ -170,6 +170,7 @@ int is_obstacle(int w) {
         case CLOUD:
         case LAVA:
         case RAIN:
+        case WATER:
             return 0;
         default:
             return 1;
@@ -197,7 +198,7 @@ int is_transparent(int w) {
 }
 
 int is_alpha(int w) {
-    return w == WATER;
+    return 0;
 }
 
 int is_destructable(int w) {
@@ -207,5 +208,18 @@ int is_destructable(int w) {
             return 0;
         default:
             return 1;
+    }
+}
+
+int is_slowing(int w) {
+    // The player must be able to pass through the item for it to slow them.
+    if (is_obstacle(w)) return 0;
+
+    switch (w) {
+        case WATER:
+        case LAVA:
+            return 1;
+        default:
+            return 0;
     }
 }
