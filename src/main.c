@@ -2050,6 +2050,16 @@ float handle_player_speed() {
     return speed;
 }
 
+// Calculate the amount of damage that should be taken, based on a downward velocity at the point of collision.
+// Parameter: dy - the rate of change on the y axis.
+void handle_fall_damage(float dy) {
+    // If a player's downward velocity is 15 or more...
+    if (dy <= -15) {
+        float damage = dy / -5.75;
+        g->players->health -= damage;
+    }
+}
+
 void handle_movement(double dt) {
     static float dy = 0;
     State *s = &g->players->state;
@@ -2092,6 +2102,7 @@ void handle_movement(double dt) {
     vx = vx * ut * speed;
     vy = vy * ut * speed;
     vz = vz * ut * speed;
+    float dyAtCollision = 0;
     for (int i = 0; i < step; i++) {
         if (g->flying) {
             dy = 0;
@@ -2104,9 +2115,13 @@ void handle_movement(double dt) {
         s->y += vy + dy * ut;
         s->z += vz;
         if (collide(2, &s->x, &s->y, &s->z)) {
+            if (!dyAtCollision)
+                dyAtCollision = dy;
             dy = 0;
         }
     }
+    handle_fall_damage(dyAtCollision);
+    
     if (s->y < 0) {
         s->y = highest_block(s->x, s->z) + 2;
     }
