@@ -2038,6 +2038,46 @@ void handle_player_health() {
         g->players->state.y = highest_block(0, 0) + 2;  // Player's vertical position should be the highest block at position(0, 0) plus 2 for the player's height.
         g->players->state.z = 0;
     }
+
+    handle_lava_damage(g->players);
+}
+
+// If player is in lava, inflict a small amount of damage.
+void handle_lava_damage() {
+    int p = chunked(g->players->state.x);
+    int q = chunked(g->players->state.z);
+    Chunk *chunk = find_chunk(p, q);
+    if (!chunk) {
+        return;
+    }
+    Map *map = &chunk->map;
+    int rx = roundf(g->players->state.x);
+    int ry = roundf(g->players->state.y);
+    int rz = roundf(g->players->state.z);
+
+    int chunkTypeUpperBody = map_get(map, rx, ry, rz);
+    int chunkTypeLowerBody = map_get(map, rx, ry-1, rz);
+
+    if (chunkTypeUpperBody == LAVA || chunkTypeLowerBody == LAVA) {
+        inflict_damage(.05);
+    }
+
+}
+
+// Calculate the amount of damage that should be taken, based on a downward velocity at the point of collision.
+// Parameter: dy - the rate of change on the y axis.
+void handle_fall_damage(float dy) {
+    // If a player's downward velocity is 15 or more...
+    if (dy <= -15) {
+        float damage = dy / -5.25;
+        inflict_damage(damage);
+    }
+}
+
+// Take damage from a player's health value. 
+// Parameter: damage - A positive float that will be subtracted from player's health.
+void inflict_damage(float damage) {
+    g->players->health -= damage;
 }
 
 // Calculates the current movement speed of the player.
@@ -2048,16 +2088,6 @@ float handle_player_speed() {
     // Only slow movement if the player is not flying.
     float speed = g->flying ? 20 : (g->slowed ? 1 : 5);
     return speed;
-}
-
-// Calculate the amount of damage that should be taken, based on a downward velocity at the point of collision.
-// Parameter: dy - the rate of change on the y axis.
-void handle_fall_damage(float dy) {
-    // If a player's downward velocity is 15 or more...
-    if (dy <= -15) {
-        float damage = dy / -5.25;
-        g->players->health -= damage;
-    }
 }
 
 void handle_movement(double dt) {
