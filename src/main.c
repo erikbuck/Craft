@@ -2027,6 +2027,19 @@ int is_movement_slowed(Player* player) {
     return result;
 }
 
+// This function looks at the current player's health, and performs actions based on the value.
+void handle_player_health() {
+    // If player has no more health...
+    if (g->players->health <= 0) {
+        // Reset the player health.
+        g->players->health = MAX_PLAYER_HEALTH;
+        // Respawn.
+        g->players->state.x = 0;
+        g->players->state.y = highest_block(0, 0) + 2;  // Player's vertical position should be the highest block at position(0, 0) plus 2 for the player's height.
+        g->players->state.z = 0;
+    }
+}
+
 // Calculates the current movement speed of the player.
 // Returns the movement speed of the player.
 float handle_player_speed() {
@@ -2396,6 +2409,8 @@ int main(int argc, char **argv) {
 
             // HANDLE MOVEMENT //
             handle_movement(dt);
+
+            handle_player_health();
 
             // HANDLE DATA FROM SERVER //
             char *buffer = client_recv();
