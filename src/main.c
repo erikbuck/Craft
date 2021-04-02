@@ -35,6 +35,8 @@
 
 #define MOUSE_SENSITIVITY 0.001;
 
+#define MAX_PLAYER_HEALTH 10
+
 typedef struct {
     Map map;
     SignList signs;
@@ -70,6 +72,7 @@ typedef struct {
 typedef struct {
     int id;
     char name[MAX_NAME_LENGTH];
+    float health;
     State state;
     State state1;
     State state2;
@@ -2363,6 +2366,7 @@ int main(int argc, char **argv) {
         g->sensitivity = MOUSE_SENSITIVITY;
         me->id = 0;
         me->name[0] = '\0';
+        me->health = MAX_PLAYER_HEALTH;
         me->buffer = 0;
         g->player_count = 1;
 
