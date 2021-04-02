@@ -2055,7 +2055,7 @@ float handle_player_speed() {
 void handle_fall_damage(float dy) {
     // If a player's downward velocity is 15 or more...
     if (dy <= -15) {
-        float damage = dy / -5.75;
+        float damage = dy / -5.25;
         g->players->health -= damage;
     }
 }
@@ -2121,7 +2121,7 @@ void handle_movement(double dt) {
         }
     }
     handle_fall_damage(dyAtCollision);
-    
+
     if (s->y < 0) {
         s->y = highest_block(s->x, s->z) + 2;
     }
