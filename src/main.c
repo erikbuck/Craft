@@ -35,6 +35,8 @@
 
 #define MOUSE_SENSITIVITY 0.001;
 
+#define MAX_PLAYER_HEALTH 10
+
 typedef struct {
     Map map;
     SignList signs;
@@ -70,6 +72,7 @@ typedef struct {
 typedef struct {
     int id;
     char name[MAX_NAME_LENGTH];
+    float health;
     State state;
     State state1;
     State state2;
@@ -2024,6 +2027,59 @@ int is_movement_slowed(Player* player) {
     return result;
 }
 
+// This function looks at the current player's health, and performs actions based on the value.
+void handle_player_health() {
+    // If player has no more health...
+    if (g->players->health <= 0) {
+        // Reset the player health.
+        g->players->health = MAX_PLAYER_HEALTH;
+        // Respawn.
+        g->players->state.x = 0;
+        g->players->state.y = highest_block(0, 0) + 2;  // Player's vertical position should be the highest block at position(0, 0) plus 2 for the player's height.
+        g->players->state.z = 0;
+    }
+
+    handle_lava_damage(g->players);
+}
+
+// If player is in lava, inflict a small amount of damage.
+void handle_lava_damage() {
+    int p = chunked(g->players->state.x);
+    int q = chunked(g->players->state.z);
+    Chunk *chunk = find_chunk(p, q);
+    if (!chunk) {
+        return;
+    }
+    Map *map = &chunk->map;
+    int rx = roundf(g->players->state.x);
+    int ry = roundf(g->players->state.y);
+    int rz = roundf(g->players->state.z);
+
+    int chunkTypeUpperBody = map_get(map, rx, ry, rz);
+    int chunkTypeLowerBody = map_get(map, rx, ry-1, rz);
+
+    if (chunkTypeUpperBody == LAVA || chunkTypeLowerBody == LAVA) {
+        inflict_damage(.05);
+    }
+
+}
+
+// Calculate the amount of damage that should be taken, based on a downward velocity at the point of collision.
+// Parameter: dy - the rate of change on the y axis.
+void handle_fall_damage(float dy) {
+    // If a player's downward velocity is 15 or more...
+    if (dy <= -15) {
+        float damage = dy / -5.25;
+        inflict_damage(damage);
+    }
+}
+
+// Take damage from a player's health value. 
+// Parameter: damage - A positive float that will be subtracted from player's health.
+void inflict_damage(float damage) {
+    g->players->health -= damage;
+}
+
 // Calculates the current movement speed of the player.
 // Returns the movement speed of the player.
 float handle_player_speed() {
@@ -2031,6 +2087,9 @@ float handle_player_speed() {
 
     // Only slow movement if the player is not flying.
     float speed = g->flying ? 20 : (g->slowed ? 1 : 5);
+    if(glfwGetKey(g->window, GLFW_KEY_LEFT_CONTROL) && !g->flying) {
+        speed *= 1.5f;
+    }
     return speed;
 }
 
@@ -2076,6 +2135,7 @@ void handle_movement(double dt) {
     vx = vx * ut * speed;
     vy = vy * ut * speed;
     vz = vz * ut * speed;
+    float dyAtCollision = 0;
     for (int i = 0; i < step; i++) {
         if (g->flying) {
             dy = 0;
@@ -2088,9 +2148,13 @@ void handle_movement(double dt) {
         s->y += vy + dy * ut;
         s->z += vz;
         if (collide(2, &s->x, &s->y, &s->z)) {
+            if (!dyAtCollision)
+                dyAtCollision = dy;
             dy = 0;
         }
     }
+    handle_fall_damage(dyAtCollision);
+
     if (s->y < 0) {
         s->y = highest_block(s->x, s->z) + 2;
     }
@@ -2363,6 +2427,7 @@ int main(int argc, char **argv) {
         g->sensitivity = MOUSE_SENSITIVITY;
         me->id = 0;
         me->name[0] = '\0';
+        me->health = MAX_PLAYER_HEALTH;
         me->buffer = 0;
         g->player_count = 1;
 
@@ -2392,6 +2457,8 @@ int main(int argc, char **argv) {
 
             // HANDLE MOVEMENT //
             handle_movement(dt);
+
+            handle_player_health();
 
             // HANDLE DATA FROM SERVER //
             char *buffer = client_recv();
@@ -2457,10 +2524,10 @@ int main(int argc, char **argv) {
                 hour = hour ? hour : 12;
                 snprintf(
                     text_buffer, 1024,
-                    "(%d, %d) (%.2f, %.2f, %.2f) [%d, %d, %d] %d%cm %dfps",
+                    "(%d, %d) (%.2f, %.2f, %.2f) [%d, %d, %d] %d%cm %dfps -- Player Health: %.2f",
                     chunked(s->x), chunked(s->z), s->x, s->y, s->z,
                     g->player_count, g->chunk_count,
-                    face_count * 2, hour, am_pm, fps.fps);
+                    face_count * 2, hour, am_pm, fps.fps, g->players->health);
                 render_text(&text_attrib, ALIGN_LEFT, tx, ty, ts, text_buffer);
                 ty -= ts * 2;
             }
