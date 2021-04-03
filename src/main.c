@@ -2087,6 +2087,9 @@ float handle_player_speed() {
 
     // Only slow movement if the player is not flying.
     float speed = g->flying ? 20 : (g->slowed ? 1 : 5);
+    if(glfwGetKey(g->window, GLFW_KEY_LEFT_CONTROL) && !g->flying) {
+        speed *= 2;
+    }
     return speed;
 }
 
