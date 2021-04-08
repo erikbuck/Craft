@@ -12,10 +12,10 @@ US006 Task011 - Rain drop blocks should have no collision and be effected by gra
 --COMPLETE-- US007 Task012 - Water blocks should not be transparent. Points 2
 --ASSIGNED-- US007 Task013 - Water and lava blocks should slow player movement when the player is inside them. Points 3
 --COMPLETE-- US007 Task014 - Lava blocks should have no collision. Points 1
---ASSIGNED-- US008 Task015 - Add button handling for sprint, doubling movement speed. Points 3
---ASSIGNED-- US009 Task016 - Add the ability to double jump while not flying. Points 3
+--COMPLETE-- US008 Task015 - Add button handling for sprint, doubling movement speed. Points 3
+--COMPLETE-- US009 Task016 - Add the ability to double jump while not flying. Points 3
 --ASSIGNED-- US010 Task017 - Add bodies of water to terrain generation. Points 5
 --COMPLETE-- US011 Task018 - Give players a health value. points 2
 --COMPLETE-- US011 Task019 - Subtract from the player's health value while in lava or if the player falls from 5 blocks or higher. points 5
-US011 Task020 - Add to the player's health periodically if it is not full. points 4
+--COMPLETE-- US011 Task020 - Add to the player's health periodically if it is not full. points 4
 --ASSIGNED-- US012 Task021 - Hold the space key to float to the top of a water body. points 3
