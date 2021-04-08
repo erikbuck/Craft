@@ -2039,6 +2039,7 @@ void handle_player_health() {
         g->players->state.z = 0;
     }
 
+    heal_damage(0.001);
     handle_lava_damage(g->players);
 }
 
@@ -2078,6 +2079,11 @@ void handle_fall_damage(float dy) {
 // Parameter: damage - A positive float that will be subtracted from player's health.
 void inflict_damage(float damage) {
     g->players->health -= damage;
+}
+
+//Heals the player for a set amount, not exceeding 10
+void heal_damage(float healing) {
+    if(g->players->health < 10.0) g->players->health += healing;
 }
 
 // Calculates the current movement speed of the player.

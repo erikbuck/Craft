@@ -1,0 +1,177 @@
+[
+{
+  "directory": "/home/brad/Desktop/Craft/build",
+  "command": "/bin/gcc-9  -I/home/brad/Desktop/Craft/deps/glew/include -I/home/brad/Desktop/Craft/deps/glfw/include -I/home/brad/Desktop/Craft/deps/lodepng -I/home/brad/Desktop/Craft/deps/noise -I/home/brad/Desktop/Craft/deps/sqlite -I/home/brad/Desktop/Craft/deps/tinycthread  -g   -std=c99 -O3 -o CMakeFiles/craft.dir/src/auth.c.o   -c /home/brad/Desktop/Craft/src/auth.c",
+  "file": "/home/brad/Desktop/Craft/src/auth.c"
+},
+{
+  "directory": "/home/brad/Desktop/Craft/build",
+  "command": "/bin/gcc-9  -I/home/brad/Desktop/Craft/deps/glew/include -I/home/brad/Desktop/Craft/deps/glfw/include -I/home/brad/Desktop/Craft/deps/lodepng -I/home/brad/Desktop/Craft/deps/noise -I/home/brad/Desktop/Craft/deps/sqlite -I/home/brad/Desktop/Craft/deps/tinycthread  -g   -std=c99 -O3 -o CMakeFiles/craft.dir/src/client.c.o   -c /home/brad/Desktop/Craft/src/client.c",
+  "file": "/home/brad/Desktop/Craft/src/client.c"
+},
+{
+  "directory": "/home/brad/Desktop/Craft/build",
+  "command": "/bin/gcc-9  -I/home/brad/Desktop/Craft/deps/glew/include -I/home/brad/Desktop/Craft/deps/glfw/include -I/home/brad/Desktop/Craft/deps/lodepng -I/home/brad/Desktop/Craft/deps/noise -I/home/brad/Desktop/Craft/deps/sqlite -I/home/brad/Desktop/Craft/deps/tinycthread  -g   -std=c99 -O3 -o CMakeFiles/craft.dir/src/cube.c.o   -c /home/brad/Desktop/Craft/src/cube.c",
+  "file": "/home/brad/Desktop/Craft/src/cube.c"
+},
+{
+  "directory": "/home/brad/Desktop/Craft/build",
+  "command": "/bin/gcc-9  -I/home/brad/Desktop/Craft/deps/glew/include -I/home/brad/Desktop/Craft/deps/glfw/include -I/home/brad/Desktop/Craft/deps/lodepng -I/home/brad/Desktop/Craft/deps/noise -I/home/brad/Desktop/Craft/deps/sqlite -I/home/brad/Desktop/Craft/deps/tinycthread  -g   -std=c99 -O3 -o CMakeFiles/craft.dir/src/db.c.o   -c /home/brad/Desktop/Craft/src/db.c",
+  "file": "/home/brad/Desktop/Craft/src/db.c"
+},
+{
+  "directory": "/home/brad/Desktop/Craft/build",
+  "command": "/bin/gcc-9  -I/home/brad/Desktop/Craft/deps/glew/include -I/home/brad/Desktop/Craft/deps/glfw/include -I/home/brad/Desktop/Craft/deps/lodepng -I/home/brad/Desktop/Craft/deps/noise -I/home/brad/Desktop/Craft/deps/sqlite -I/home/brad/Desktop/Craft/deps/tinycthread  -g   -std=c99 -O3 -o CMakeFiles/craft.dir/src/item.c.o   -c /home/brad/Desktop/Craft/src/item.c",
+  "file": "/home/brad/Desktop/Craft/src/item.c"
+},
+{
+  "directory": "/home/brad/Desktop/Craft/build",
+  "command": "/bin/gcc-9  -I/home/brad/Desktop/Craft/deps/glew/include -I/home/brad/Desktop/Craft/deps/glfw/include -I/home/brad/Desktop/Craft/deps/lodepng -I/home/brad/Desktop/Craft/deps/noise -I/home/brad/Desktop/Craft/deps/sqlite -I/home/brad/Desktop/Craft/deps/tinycthread  -g   -std=c99 -O3 -o CMakeFiles/craft.dir/src/main.c.o   -c /home/brad/Desktop/Craft/src/main.c",
+  "file": "/home/brad/Desktop/Craft/src/main.c"
+},
+{
+  "directory": "/home/brad/Desktop/Craft/build",
+  "command": "/bin/gcc-9  -I/home/brad/Desktop/Craft/deps/glew/include -I/home/brad/Desktop/Craft/deps/glfw/include -I/home/brad/Desktop/Craft/deps/lodepng -I/home/brad/Desktop/Craft/deps/noise -I/home/brad/Desktop/Craft/deps/sqlite -I/home/brad/Desktop/Craft/deps/tinycthread  -g   -std=c99 -O3 -o CMakeFiles/craft.dir/src/map.c.o   -c /home/brad/Desktop/Craft/src/map.c",
+  "file": "/home/brad/Desktop/Craft/src/map.c"
+},
+{
+  "directory": "/home/brad/Desktop/Craft/build",
+  "command": "/bin/gcc-9  -I/home/brad/Desktop/Craft/deps/glew/include -I/home/brad/Desktop/Craft/deps/glfw/include -I/home/brad/Desktop/Craft/deps/lodepng -I/home/brad/Desktop/Craft/deps/noise -I/home/brad/Desktop/Craft/deps/sqlite -I/home/brad/Desktop/Craft/deps/tinycthread  -g   -std=c99 -O3 -o CMakeFiles/craft.dir/src/matrix.c.o   -c /home/brad/Desktop/Craft/src/matrix.c",
+  "file": "/home/brad/Desktop/Craft/src/matrix.c"
+},
+{
+  "directory": "/home/brad/Desktop/Craft/build",
+  "command": "/bin/gcc-9  -I/home/brad/Desktop/Craft/deps/glew/include -I/home/brad/Desktop/Craft/deps/glfw/include -I/home/brad/Desktop/Craft/deps/lodepng -I/home/brad/Desktop/Craft/deps/noise -I/home/brad/Desktop/Craft/deps/sqlite -I/home/brad/Desktop/Craft/deps/tinycthread  -g   -std=c99 -O3 -o CMakeFiles/craft.dir/src/ring.c.o   -c /home/brad/Desktop/Craft/src/ring.c",
+  "file": "/home/brad/Desktop/Craft/src/ring.c"
+},
+{
+  "directory": "/home/brad/Desktop/Craft/build",
+  "command": "/bin/gcc-9  -I/home/brad/Desktop/Craft/deps/glew/include -I/home/brad/Desktop/Craft/deps/glfw/include -I/home/brad/Desktop/Craft/deps/lodepng -I/home/brad/Desktop/Craft/deps/noise -I/home/brad/Desktop/Craft/deps/sqlite -I/home/brad/Desktop/Craft/deps/tinycthread  -g   -std=c99 -O3 -o CMakeFiles/craft.dir/src/sign.c.o   -c /home/brad/Desktop/Craft/src/sign.c",
+  "file": "/home/brad/Desktop/Craft/src/sign.c"
+},
+{
+  "directory": "/home/brad/Desktop/Craft/build",
+  "command": "/bin/gcc-9  -I/home/brad/Desktop/Craft/deps/glew/include -I/home/brad/Desktop/Craft/deps/glfw/include -I/home/brad/Desktop/Craft/deps/lodepng -I/home/brad/Desktop/Craft/deps/noise -I/home/brad/Desktop/Craft/deps/sqlite -I/home/brad/Desktop/Craft/deps/tinycthread  -g   -std=c99 -O3 -o CMakeFiles/craft.dir/src/util.c.o   -c /home/brad/Desktop/Craft/src/util.c",
+  "file": "/home/brad/Desktop/Craft/src/util.c"
+},
+{
+  "directory": "/home/brad/Desktop/Craft/build",
+  "command": "/bin/gcc-9  -I/home/brad/Desktop/Craft/deps/glew/include -I/home/brad/Desktop/Craft/deps/glfw/include -I/home/brad/Desktop/Craft/deps/lodepng -I/home/brad/Desktop/Craft/deps/noise -I/home/brad/Desktop/Craft/deps/sqlite -I/home/brad/Desktop/Craft/deps/tinycthread  -g   -std=c99 -O3 -o CMakeFiles/craft.dir/src/world.c.o   -c /home/brad/Desktop/Craft/src/world.c",
+  "file": "/home/brad/Desktop/Craft/src/world.c"
+},
+{
+  "directory": "/home/brad/Desktop/Craft/build",
+  "command": "/bin/gcc-9  -I/home/brad/Desktop/Craft/deps/glew/include -I/home/brad/Desktop/Craft/deps/glfw/include -I/home/brad/Desktop/Craft/deps/lodepng -I/home/brad/Desktop/Craft/deps/noise -I/home/brad/Desktop/Craft/deps/sqlite -I/home/brad/Desktop/Craft/deps/tinycthread  -g   -std=c99 -O3 -o CMakeFiles/craft.dir/deps/glew/src/glew.c.o   -c /home/brad/Desktop/Craft/deps/glew/src/glew.c",
+  "file": "/home/brad/Desktop/Craft/deps/glew/src/glew.c"
+},
+{
+  "directory": "/home/brad/Desktop/Craft/build",
+  "command": "/bin/gcc-9  -I/home/brad/Desktop/Craft/deps/glew/include -I/home/brad/Desktop/Craft/deps/glfw/include -I/home/brad/Desktop/Craft/deps/lodepng -I/home/brad/Desktop/Craft/deps/noise -I/home/brad/Desktop/Craft/deps/sqlite -I/home/brad/Desktop/Craft/deps/tinycthread  -g   -std=c99 -O3 -o CMakeFiles/craft.dir/deps/lodepng/lodepng.c.o   -c /home/brad/Desktop/Craft/deps/lodepng/lodepng.c",
+  "file": "/home/brad/Desktop/Craft/deps/lodepng/lodepng.c"
+},
+{
+  "directory": "/home/brad/Desktop/Craft/build",
+  "command": "/bin/gcc-9  -I/home/brad/Desktop/Craft/deps/glew/include -I/home/brad/Desktop/Craft/deps/glfw/include -I/home/brad/Desktop/Craft/deps/lodepng -I/home/brad/Desktop/Craft/deps/noise -I/home/brad/Desktop/Craft/deps/sqlite -I/home/brad/Desktop/Craft/deps/tinycthread  -g   -std=c99 -O3 -o CMakeFiles/craft.dir/deps/noise/noise.c.o   -c /home/brad/Desktop/Craft/deps/noise/noise.c",
+  "file": "/home/brad/Desktop/Craft/deps/noise/noise.c"
+},
+{
+  "directory": "/home/brad/Desktop/Craft/build",
+  "command": "/bin/gcc-9  -I/home/brad/Desktop/Craft/deps/glew/include -I/home/brad/Desktop/Craft/deps/glfw/include -I/home/brad/Desktop/Craft/deps/lodepng -I/home/brad/Desktop/Craft/deps/noise -I/home/brad/Desktop/Craft/deps/sqlite -I/home/brad/Desktop/Craft/deps/tinycthread  -g   -std=c99 -O3 -o CMakeFiles/craft.dir/deps/sqlite/sqlite3.c.o   -c /home/brad/Desktop/Craft/deps/sqlite/sqlite3.c",
+  "file": "/home/brad/Desktop/Craft/deps/sqlite/sqlite3.c"
+},
+{
+  "directory": "/home/brad/Desktop/Craft/build",
+  "command": "/bin/gcc-9  -I/home/brad/Desktop/Craft/deps/glew/include -I/home/brad/Desktop/Craft/deps/glfw/include -I/home/brad/Desktop/Craft/deps/lodepng -I/home/brad/Desktop/Craft/deps/noise -I/home/brad/Desktop/Craft/deps/sqlite -I/home/brad/Desktop/Craft/deps/tinycthread  -g   -std=c99 -O3 -o CMakeFiles/craft.dir/deps/tinycthread/tinycthread.c.o   -c /home/brad/Desktop/Craft/deps/tinycthread/tinycthread.c",
+  "file": "/home/brad/Desktop/Craft/deps/tinycthread/tinycthread.c"
+},
+{
+  "directory": "/home/brad/Desktop/Craft/build/deps/glfw/src",
+  "command": "/bin/gcc-9 -D_GNU_SOURCE -I/home/brad/Desktop/Craft/deps/glfw/src -I/home/brad/Desktop/Craft/build/deps/glfw/src  -g   -std=c99 -O3 -Wall -o CMakeFiles/glfw.dir/clipboard.c.o   -c /home/brad/Desktop/Craft/deps/glfw/src/clipboard.c",
+  "file": "/home/brad/Desktop/Craft/deps/glfw/src/clipboard.c"
+},
+{
+  "directory": "/home/brad/Desktop/Craft/build/deps/glfw/src",
+  "command": "/bin/gcc-9 -D_GNU_SOURCE -I/home/brad/Desktop/Craft/deps/glfw/src -I/home/brad/Desktop/Craft/build/deps/glfw/src  -g   -std=c99 -O3 -Wall -o CMakeFiles/glfw.dir/context.c.o   -c /home/brad/Desktop/Craft/deps/glfw/src/context.c",
+  "file": "/home/brad/Desktop/Craft/deps/glfw/src/context.c"
+},
+{
+  "directory": "/home/brad/Desktop/Craft/build/deps/glfw/src",
+  "command": "/bin/gcc-9 -D_GNU_SOURCE -I/home/brad/Desktop/Craft/deps/glfw/src -I/home/brad/Desktop/Craft/build/deps/glfw/src  -g   -std=c99 -O3 -Wall -o CMakeFiles/glfw.dir/gamma.c.o   -c /home/brad/Desktop/Craft/deps/glfw/src/gamma.c",
+  "file": "/home/brad/Desktop/Craft/deps/glfw/src/gamma.c"
+},
+{
+  "directory": "/home/brad/Desktop/Craft/build/deps/glfw/src",
+  "command": "/bin/gcc-9 -D_GNU_SOURCE -I/home/brad/Desktop/Craft/deps/glfw/src -I/home/brad/Desktop/Craft/build/deps/glfw/src  -g   -std=c99 -O3 -Wall -o CMakeFiles/glfw.dir/init.c.o   -c /home/brad/Desktop/Craft/deps/glfw/src/init.c",
+  "file": "/home/brad/Desktop/Craft/deps/glfw/src/init.c"
+},
+{
+  "directory": "/home/brad/Desktop/Craft/build/deps/glfw/src",
+  "command": "/bin/gcc-9 -D_GNU_SOURCE -I/home/brad/Desktop/Craft/deps/glfw/src -I/home/brad/Desktop/Craft/build/deps/glfw/src  -g   -std=c99 -O3 -Wall -o CMakeFiles/glfw.dir/input.c.o   -c /home/brad/Desktop/Craft/deps/glfw/src/input.c",
+  "file": "/home/brad/Desktop/Craft/deps/glfw/src/input.c"
+},
+{
+  "directory": "/home/brad/Desktop/Craft/build/deps/glfw/src",
+  "command": "/bin/gcc-9 -D_GNU_SOURCE -I/home/brad/Desktop/Craft/deps/glfw/src -I/home/brad/Desktop/Craft/build/deps/glfw/src  -g   -std=c99 -O3 -Wall -o CMakeFiles/glfw.dir/joystick.c.o   -c /home/brad/Desktop/Craft/deps/glfw/src/joystick.c",
+  "file": "/home/brad/Desktop/Craft/deps/glfw/src/joystick.c"
+},
+{
+  "directory": "/home/brad/Desktop/Craft/build/deps/glfw/src",
+  "command": "/bin/gcc-9 -D_GNU_SOURCE -I/home/brad/Desktop/Craft/deps/glfw/src -I/home/brad/Desktop/Craft/build/deps/glfw/src  -g   -std=c99 -O3 -Wall -o CMakeFiles/glfw.dir/monitor.c.o   -c /home/brad/Desktop/Craft/deps/glfw/src/monitor.c",
+  "file": "/home/brad/Desktop/Craft/deps/glfw/src/monitor.c"
+},
+{
+  "directory": "/home/brad/Desktop/Craft/build/deps/glfw/src",
+  "command": "/bin/gcc-9 -D_GNU_SOURCE -I/home/brad/Desktop/Craft/deps/glfw/src -I/home/brad/Desktop/Craft/build/deps/glfw/src  -g   -std=c99 -O3 -Wall -o CMakeFiles/glfw.dir/time.c.o   -c /home/brad/Desktop/Craft/deps/glfw/src/time.c",
+  "file": "/home/brad/Desktop/Craft/deps/glfw/src/time.c"
+},
+{
+  "directory": "/home/brad/Desktop/Craft/build/deps/glfw/src",
+  "command": "/bin/gcc-9 -D_GNU_SOURCE -I/home/brad/Desktop/Craft/deps/glfw/src -I/home/brad/Desktop/Craft/build/deps/glfw/src  -g   -std=c99 -O3 -Wall -o CMakeFiles/glfw.dir/window.c.o   -c /home/brad/Desktop/Craft/deps/glfw/src/window.c",
+  "file": "/home/brad/Desktop/Craft/deps/glfw/src/window.c"
+},
+{
+  "directory": "/home/brad/Desktop/Craft/build/deps/glfw/src",
+  "command": "/bin/gcc-9 -D_GNU_SOURCE -I/home/brad/Desktop/Craft/deps/glfw/src -I/home/brad/Desktop/Craft/build/deps/glfw/src  -g   -std=c99 -O3 -Wall -o CMakeFiles/glfw.dir/x11_clipboard.c.o   -c /home/brad/Desktop/Craft/deps/glfw/src/x11_clipboard.c",
+  "file": "/home/brad/Desktop/Craft/deps/glfw/src/x11_clipboard.c"
+},
+{
+  "directory": "/home/brad/Desktop/Craft/build/deps/glfw/src",
+  "command": "/bin/gcc-9 -D_GNU_SOURCE -I/home/brad/Desktop/Craft/deps/glfw/src -I/home/brad/Desktop/Craft/build/deps/glfw/src  -g   -std=c99 -O3 -Wall -o CMakeFiles/glfw.dir/x11_gamma.c.o   -c /home/brad/Desktop/Craft/deps/glfw/src/x11_gamma.c",
+  "file": "/home/brad/Desktop/Craft/deps/glfw/src/x11_gamma.c"
+},
+{
+  "directory": "/home/brad/Desktop/Craft/build/deps/glfw/src",
+  "command": "/bin/gcc-9 -D_GNU_SOURCE -I/home/brad/Desktop/Craft/deps/glfw/src -I/home/brad/Desktop/Craft/build/deps/glfw/src  -g   -std=c99 -O3 -Wall -o CMakeFiles/glfw.dir/x11_init.c.o   -c /home/brad/Desktop/Craft/deps/glfw/src/x11_init.c",
+  "file": "/home/brad/Desktop/Craft/deps/glfw/src/x11_init.c"
+},
+{
+  "directory": "/home/brad/Desktop/Craft/build/deps/glfw/src",
+  "command": "/bin/gcc-9 -D_GNU_SOURCE -I/home/brad/Desktop/Craft/deps/glfw/src -I/home/brad/Desktop/Craft/build/deps/glfw/src  -g   -std=c99 -O3 -Wall -o CMakeFiles/glfw.dir/x11_joystick.c.o   -c /home/brad/Desktop/Craft/deps/glfw/src/x11_joystick.c",
+  "file": "/home/brad/Desktop/Craft/deps/glfw/src/x11_joystick.c"
+},
+{
+  "directory": "/home/brad/Desktop/Craft/build/deps/glfw/src",
+  "command": "/bin/gcc-9 -D_GNU_SOURCE -I/home/brad/Desktop/Craft/deps/glfw/src -I/home/brad/Desktop/Craft/build/deps/glfw/src  -g   -std=c99 -O3 -Wall -o CMakeFiles/glfw.dir/x11_monitor.c.o   -c /home/brad/Desktop/Craft/deps/glfw/src/x11_monitor.c",
+  "file": "/home/brad/Desktop/Craft/deps/glfw/src/x11_monitor.c"
+},
+{
+  "directory": "/home/brad/Desktop/Craft/build/deps/glfw/src",
+  "command": "/bin/gcc-9 -D_GNU_SOURCE -I/home/brad/Desktop/Craft/deps/glfw/src -I/home/brad/Desktop/Craft/build/deps/glfw/src  -g   -std=c99 -O3 -Wall -o CMakeFiles/glfw.dir/x11_time.c.o   -c /home/brad/Desktop/Craft/deps/glfw/src/x11_time.c",
+  "file": "/home/brad/Desktop/Craft/deps/glfw/src/x11_time.c"
+},
+{
+  "directory": "/home/brad/Desktop/Craft/build/deps/glfw/src",
+  "command": "/bin/gcc-9 -D_GNU_SOURCE -I/home/brad/Desktop/Craft/deps/glfw/src -I/home/brad/Desktop/Craft/build/deps/glfw/src  -g   -std=c99 -O3 -Wall -o CMakeFiles/glfw.dir/x11_window.c.o   -c /home/brad/Desktop/Craft/deps/glfw/src/x11_window.c",
+  "file": "/home/brad/Desktop/Craft/deps/glfw/src/x11_window.c"
+},
+{
+  "directory": "/home/brad/Desktop/Craft/build/deps/glfw/src",
+  "command": "/bin/gcc-9 -D_GNU_SOURCE -I/home/brad/Desktop/Craft/deps/glfw/src -I/home/brad/Desktop/Craft/build/deps/glfw/src  -g   -std=c99 -O3 -Wall -o CMakeFiles/glfw.dir/x11_unicode.c.o   -c /home/brad/Desktop/Craft/deps/glfw/src/x11_unicode.c",
+  "file": "/home/brad/Desktop/Craft/deps/glfw/src/x11_unicode.c"
+},
+{
+  "directory": "/home/brad/Desktop/Craft/build/deps/glfw/src",
+  "command": "/bin/gcc-9 -D_GNU_SOURCE -I/home/brad/Desktop/Craft/deps/glfw/src -I/home/brad/Desktop/Craft/build/deps/glfw/src  -g   -std=c99 -O3 -Wall -o CMakeFiles/glfw.dir/glx_context.c.o   -c /home/brad/Desktop/Craft/deps/glfw/src/glx_context.c",
+  "file": "/home/brad/Desktop/Craft/deps/glfw/src/glx_context.c"
+}
+]
