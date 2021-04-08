@@ -2083,7 +2083,7 @@ void inflict_damage(float damage) {
 
 //Heals the player for a set amount, not exceeding 10
 void heal_damage(float healing) {
-    if(g->players->health < 10.0) g->players->health += healing;
+    if(g->players->health < MAX_PLAYER_HEALTH) g->players->health += healing;
 }
 
 // Calculates the current movement speed of the player.
