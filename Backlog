@@ -19,3 +19,6 @@ US006 Task011 - Rain drop blocks should have no collision and be effected by gra
 --COMPLETE-- US011 Task019 - Subtract from the player's health value while in lava or if the player falls from 5 blocks or higher. points 5
 --COMPLETE-- US011 Task020 - Add to the player's health periodically if it is not full. points 4
 --ASSIGNED-- US012 Task021 - Hold the space key to float to the top of a water body. points 3
+--ASSIGNED-- US013 Task022 - Document the main.c functions handle_movement, tree, on_mouse_button, heal_damage, and create_window
+--ASSIGNED-- US014 Task023 - Create overlay when paused that displays the controls.
+--ASSIGNED-- US001 Task024 - Make mouse more responsive to input, and reduce spinning when looking straight up or down.
