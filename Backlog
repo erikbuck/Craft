@@ -23,3 +23,4 @@ US006 Task011 - Rain drop blocks should have no collision and be effected by gra
 --ASSIGNED-- US014 Task023 - Create overlay when paused that displays the controls. points 3
 --ASSIGNED-- US001 Task024 - Make mouse more responsive to input, and reduce spinning when looking straight up or down. points 4
 --ASSIGNED-- US013 Task025 - Document the main.c functions: handle_player_health, handle_lava_damage, handle_fall_damage, is_movement_slowed, and reset_model. points 2
+--ASSIGNED-- US014 Task026 - Re-map the zoom key from left-shift to 'z'. points 2
