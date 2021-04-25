@@ -20,6 +20,11 @@
 #include "util.h"
 #include "world.h"
 
+#include <AL/al.h>
+//#include "al.h"
+#include <AL/alc.h>
+#include <AL/alut.h>
+
 #define MAX_CHUNKS 8192
 #define MAX_PLAYERS 128
 #define WORKERS 4
@@ -2408,7 +2413,7 @@ void handle_mouse_input() {
     }
 }
 
-void handle_movement(double dt) {
+void handle_movement(double dt, ALuint *walk_buffer, clock_t *walk_timestamp) {
     static float dy = 0;
     State *s = &g->players->state;
     int sz = 0;
@@ -2417,10 +2422,42 @@ void handle_movement(double dt) {
         float m = dt * 1.0;
         g->ortho = glfwGetKey(g->window, CRAFT_KEY_ORTHO) ? 64 : 0;
         g->fov = glfwGetKey(g->window, CRAFT_KEY_ZOOM) ? 15 : 65;
-        if (glfwGetKey(g->window, CRAFT_KEY_FORWARD)) sz--;
-        if (glfwGetKey(g->window, CRAFT_KEY_BACKWARD)) sz++;
-        if (glfwGetKey(g->window, CRAFT_KEY_LEFT)) sx--;
-        if (glfwGetKey(g->window, CRAFT_KEY_RIGHT)) sx++;
+        if (glfwGetKey(g->window, CRAFT_KEY_FORWARD)){
+            if(clock() > (*walk_timestamp+CLOCKS_PER_SEC) ){
+                walkSoundStart();
+                *walk_timestamp = clock();
+            }
+            sz--;
+        } else {
+            walkSoundStop();
+        }
+        if (glfwGetKey(g->window, CRAFT_KEY_BACKWARD)) {
+            if(clock() > (*walk_timestamp+CLOCKS_PER_SEC) ){
+                walkSoundStart();
+                *walk_timestamp = clock();
+            }
+            sz++;
+        } else {
+            walkSoundStop();
+        }
+        if (glfwGetKey(g->window, CRAFT_KEY_LEFT)) {
+            if(clock() > (*walk_timestamp+CLOCKS_PER_SEC) ){
+                walkSoundStart();
+                *walk_timestamp = clock();
+            }
+            sx--;
+        } else {
+            walkSoundStop();
+        }
+        if (glfwGetKey(g->window, CRAFT_KEY_RIGHT)) {
+            if(clock() > (*walk_timestamp+CLOCKS_PER_SEC) ){
+                walkSoundStart();
+                *walk_timestamp = clock();
+            }
+            sx++;
+        } else {
+            walkSoundStop();
+        }
         if (glfwGetKey(g->window, GLFW_KEY_LEFT)) s->rx -= m;
         if (glfwGetKey(g->window, GLFW_KEY_RIGHT)) s->rx += m;
         if (glfwGetKey(g->window, GLFW_KEY_UP)) s->ry += m;
@@ -2584,7 +2621,32 @@ void reset_model() {
 }
 
 int main(int argc, char **argv) {
-    // INITIALIZATION //
+    ALuint ambient_buffer, ambient, walk;
+    ALuint state = AL_TRUE;
+
+    // Initialize the environment
+    alutInit(0, NULL);
+
+    alGetError();
+    ALuint walk_buffer = alutCreateBufferFromFile("step_sound.wav");
+    //Ambient sound prep and play
+    ambient_buffer = alutCreateBufferFromFile("test.wav");
+    alGenSources(1, &ambient);
+    alSourcei(ambient, AL_BUFFER, ambient_buffer);
+    alSourcei(ambient, AL_LOOPING, AL_TRUE);
+    alSourcePlay(ambient);
+    //alGetSourcei(ambient, AL_SOURCE_STATE, &state);
+    system("play -q ./step_sound.wav repeat 99999 &");
+    system("pkill -STOP play &");
+
+    clock_t walk_timestamp = clock();
+
+    /*//Walk sound prep
+    buffer = alutCreateBufferFromFile("../step_sound.wav");
+    alGenSources(1, &ambient);
+    alSourcei(ambient, AL_BUFFER, buffer);
+    alGetSourcei(ambient, AL_SOURCE_STATE, &state);
+*/
     curl_global_init(CURL_GLOBAL_DEFAULT);
     srand(time(NULL));
     rand();
@@ -2797,7 +2859,7 @@ int main(int argc, char **argv) {
             handle_mouse_input();
 
             // HANDLE MOVEMENT //
-            handle_movement(dt);
+            handle_movement(dt, &walk_buffer, &walk_timestamp);
 
             // HANDLE DATA FROM SERVER //
             char *buffer = client_recv();
@@ -2957,6 +3019,7 @@ int main(int argc, char **argv) {
         delete_all_players();
     }
 
+    alutExit();
     glfwTerminate();
     curl_global_cleanup();
     return 0;
